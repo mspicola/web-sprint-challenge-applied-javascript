@@ -14,8 +14,18 @@
 //
 
 const Tabs = (topics) => {
+  const topicsDiv = document.createElement("div") 
+  topics.forEach(function(topic) {
+    const tabsDiv = document.createElement("div")
+    topicsDiv.appendChild(tabsDiv)
+    tabsDiv.classList.add("tab")
+    tabsDiv.textContent = topic
+  })
+return topicsDiv;
 }
 
+// array1.forEach(function(element) {
+//   console.log(element));
 
 // TASK 4
 // ---------------------
