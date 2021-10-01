@@ -24,9 +24,6 @@ const Tabs = (topics) => {
 return topicsDiv;
 }
 
-// array1.forEach(function(element) {
-//   console.log(element));
-
 // TASK 4
 // ---------------------
 // Implement this function which takes a css selector as its only argument.
@@ -36,6 +33,19 @@ return topicsDiv;
 //
 
 const tabsAppender = (selector) => {
+  let axios = require("axios");  
+  const response = axios.get('http://localhost:5000/api/topics')
+  response.then(function(value) {
+    // console.log(value.data);
+    let topics = value.data.topics
+    console.log(topics);
+    const tabsSection = document.querySelector(selector)
+    let topicTabs = Tabs(topics)
+    tabsSection.appendChild(topicTabs);
+  })
+
 }
+
+// tabsAppender();
 
 export { Tabs, tabsAppender }
